@@ -58,5 +58,20 @@ Vamos a cargar nuestro dataset desde el archivo homicidio.csv a una base de dato
 
 Usamos este [ELT](Notebook/etl.py) para dicha tarea.
 
+## Estructura repositorio
+
+```text
+/
+├── data/
+│   └── homicidio.csv  # Dataset original 
+├── notebook/
+│   └── ELT.py # Script de carga y transformación
+├──doc/
+│   └── imagenes.png # Imágenes relacionadas al proyecto como diagramas y flujos
+├── SQL/
+│   └── staging_tables.sql     # Carga SQL Server 
+├── README.md                  # Documentación del proyecto
+└── _Evidencia_CRISP-DM.pdf    # Documentación metodológica completa
+
 
 
