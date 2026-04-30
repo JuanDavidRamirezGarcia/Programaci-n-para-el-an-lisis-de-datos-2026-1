@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-2" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" parent="WIyWlLk6GJQsqaUBKTNV-1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="&lt;b&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;Fuente de datos&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="80" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-1" parent="WIyWlLk6GJQsqaUBKTNV-1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" value="Homicidio.csv" vertex="1">
+          <mxGeometry height="100" width="80" x="100" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-2" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="Datos abiertos ministerio de defensa." vertex="1">
+          <mxGeometry height="30" width="90" x="100" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-3" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b style=&quot;&quot;&gt;ELT:&lt;/b&gt; Extracción, cargsa y transformación&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="280" x="170" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-4" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Extract" vertex="1">
+          <mxGeometry height="30" width="60" x="210" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-5" parent="WIyWlLk6GJQsqaUBKTNV-1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" value="Base de datos: SQL Server" vertex="1">
+          <mxGeometry height="90" width="90" x="280" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-6" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Load" vertex="1">
+          <mxGeometry height="30" width="60" x="295" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-7" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="209.5" as="sourcePoint" />
+            <mxPoint x="490" y="209.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-8" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Transform" vertex="1">
+          <mxGeometry height="30" width="60" x="400" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-9" parent="WIyWlLk6GJQsqaUBKTNV-1" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" value="" vertex="1">
+          <mxGeometry height="61" width="52" x="520" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-10" parent="WIyWlLk6GJQsqaUBKTNV-1" style="swimlane;startSize=0;align=left;" value="" vertex="1">
+          <mxGeometry height="130" width="150" x="510" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-11" parent="WIyWlLk6GJQsqaUBKTNV-1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;ul&gt;&lt;li&gt;Nulos&lt;/li&gt;&lt;li&gt;Duplicados&lt;/li&gt;&lt;li&gt;Inconsistencias&lt;/li&gt;&lt;li&gt;Calculo de nuevas variables&lt;/li&gt;&lt;li&gt;Filtrado&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="490" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="MsXqk41fAhrBQ1U_rzaS-12" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="MsXqk41fAhrBQ1U_rzaS-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="MsXqk41fAhrBQ1U_rzaS-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
