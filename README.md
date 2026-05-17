@@ -1,3 +1,22 @@
+## ⚠️ Nota: Cambio de tema entre Evidencia 1 y Evidencia 2
+
+Este repositorio contiene el trabajo de ambas evidencias del curso **Programación para Análisis de Datos (2026-1)**.
+
+### Evidencia 1 — Metodología CRISP-DM (Tema original)
+- **Tema:** Análisis de patrones de homicidio en Colombia fuera del conflicto armado.
+- **Fuente de datos:** Dataset de homicidios del Ministerio de Defensa ([datos.gov.co](https://www.datos.gov.co/Seguridad-y-Defensa/HOMICIDIO/m8fd-ahd9/about_data/)).
+- **Archivos:** Ver carpeta `/Evidencia_1/`
+
+### Evidencia 2 — Etapa 3 CRISP-DM: Web Scraping (Nuevo tema)
+- **Tema:** Extracción y almacenamiento de datos de vuelos de llegada y salida desde el portal de la Aeronáutica Civil.
+- **Fuente de datos:** [aerocivil.gov.co](https://www.aerocivil.gov.co)
+- **Herramientas:** Selenium + BeautifulSoup + SQL Server (ETL)
+- **Archivos:** Ver carpeta `/Evidencia_2/`
+
+El cambio de temática fue una decisión del equipo para trabajar con datos dinámicos en tiempo real y aplicar técnicas de web scraping con paginación JavaScript, alineándose mejor con los objetivos de la Evidencia 2.
+
+
+
 # Evidencia de Aprendizaje 1: Metodología CRISP-DM
 
 **Integrantes**: 
@@ -58,20 +77,89 @@ Vamos a cargar nuestro dataset desde el archivo homicidio.csv a una base de dato
 
 Usamos este [ELT](Notebook/etl.py) para dicha tarea.
 
-## Estructura repositorio
+- `Evidencia_1/`
+  - `data/`
+    - `homicidio.csv` — Dataset original del Ministerio de Defensa
+  - `notebook/`
+    - `etl.py` — Script de carga y transformación
+  - `doc/`
+    - `imagenes.png` — Diagramas, modelo estrella y flujos
+  - `SQL/`
+    - `staging_tables.sql` — Creación de tablas en SQL Server
+  - `Evidencia_1_CRISP-DM.pdf` — Documentación metodológica completa
 
-```text
-/
-├── data/
-│   └── homicidio.csv  # Dataset original 
-├── notebook/
-│   └── ELT.py # Script de carga y transformación
-├──doc/
-│   └── imagenes.png # Imágenes relacionadas al proyecto como diagramas y flujos
-├── SQL/
-│   └── staging_tables.sql     # Carga SQL Server 
-├── README.md                  # Documentación del proyecto
-└── _Evidencia_CRISP-DM.pdf    # Documentación metodológica completa
+
+# Evidencia de Aprendizaje 2: Etapa 3 de la Metodología CRISP-DM — Web Scraping
+
+
+## 1. Definición de la necesidad
+El seguimiento en tiempo real del estado de los vuelos en Colombia es una necesidad tanto para pasajeros como para entidades de transporte y autoridades aeronáuticas. Sin embargo, la información publicada por la Aeronáutica Civil en su portal web no está disponible en un formato estructurado descargable, lo que dificulta su análisis histórico y comparativo. El objetivo de este trabajo es extraer, transformar y almacenar de manera automatizada los datos de vuelos de llegada y salida publicados en el portal de la Aeronáutica Civil (aerocivil.gov.co), aplicando la etapa de preparación de datos de la metodología CRISP-DM mediante técnicas de web scraping.
+
+
+Pregunta de negocio o de la problemática: ¿Cuál es el estado operativo de los vuelos de llegada y salida en Colombia, y qué patrones pueden identificarse a partir de la información publicada por la Aeronáutica Civil?
+
+
+## 2. Diseño de la necesidad
+Objetivos de negocio:
+
+Automatizar la extracción de datos de vuelos de llegada y salida desde el portal de la Aeronáutica Civil para construir una base de datos estructurada que permita análisis posteriores.
+Identificar patrones en la operación aérea colombiana, como las aerolíneas con mayor volumen de vuelos, los orígenes y destinos más frecuentes, y la distribución de vuelos nacionales e internacionales.
+
+Fuentes de datos relevantes:
+
+* Vuelos de llegada: https://www.aerocivil.gov.co
+* Vuelos de salida: https://www.aerocivil.gov.co
+* Fuente: Portal oficial de la Aeronáutica Civil de Colombia.
+
+
+## 3. Modelos de diseño
+Se diseñó un modelo relacional en SQL Server Express compuesto por tablas de staging independientes y una tabla de hechos unificada, siguiendo la misma lógica de separación entre datos crudos y datos transformados utilizada en la Evidencia 1.
+Tablas del modelo:
+
+Staging_Llegada: almacena los registros crudos extraídos del scraper de vuelos de llegada.
+Staging_Salida: almacena los registros crudos extraídos del scraper de vuelos de salida.
+Fact_Vuelos: tabla de hechos unificada que consolida tanto los vuelos de llegada como los de salida, con los datos ya transformados y limpios.
+
+### Campos del modelo:
+
+Cada tabla contiene los campos: aerolinea, numero_vuelo, ciudad_conexion, hora_estimada, fecha_vuelo, tipo_de_vuelo, estado y tipo_movimiento.
+Relaciones del modelo:
+
+Las tablas Staging_Llegada y Staging_Salida son independientes entre sí y actúan como fuente para la tabla Fact_Vuelos.
+La tabla Fact_Vuelos consolida verticalmente ambas tablas de staging mediante una operación pd.concat(), diferenciando cada registro por el campo tipo_movimiento con los valores Llegada o Salida.
+
+### Conexión y carga de prueba de la base de datos:
+
+Los datos fueron cargados desde los archivos CSV generados por los scrapers hacia la base de datos EstadosVuelosDB en SQL Server Express, usando SQLAlchemy como conector y pandas para las transformaciones. El proceso ETL limpia los espacios en los nombres de columnas, normaliza el campo aerolínea extrayendo el nombre desde la URL de la imagen, elimina duplicados por número de vuelo y carga los datos en las tablas correspondientes.
+
+El script ETL completo está disponible en el repositorio: etl.py
+Estructura del repositorio:
+
+documentación metodológica completa
+
+
+- `Evidencia_2/`
+  - `scrapers/`
+    - `scraper_llegadas.py` — Scraper de vuelos de llegada
+    - `scraper_salidas.py` — Scraper de vuelos de salida
+  - `etl/`
+    - `etl.py` — Script ETL de carga a SQL Server
+  - `output/`
+    - `vuelos_llegadas_selenium.csv`
+    - `vuelos_salidas_selenium.csv`
+  - `doc/`
+    - `imagenes.png` — Diagramas y capturas del proceso
+  - `SQL/`
+    - `staging_tables.sql` — Creación de tablas en SQL Server
+  - `Evidencia_2_web_scraping.pdf` — Documentación metodológica completa
+
+
+
+
+
+
+
+
 
 
 
